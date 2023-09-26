@@ -87,7 +87,7 @@ jobs:
       - name: Get pre MD5 
         id: get_md5_pre
         run: |
-          ossutil cp -rf "${{ vars.ALIYUN_OSS_PATH }}data.db" run_page/data.db
+          ossutil cp -rf "${{ vars.ALIYUN_OSS_PATH }}data.db" run_page/
           echo "MD5_PRE=$(md5sum run_page/data.db | awk '{print $1}')" >> $GITHUB_OUTPUT
       - name: Run sync Strava script
         if: env.RUN_TYPE == 'strava'
