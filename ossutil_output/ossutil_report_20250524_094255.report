@@ -1,0 +1,2 @@
+# ossutil cp -rf run_page/data.db oss://bobz-p/running_page/data.db
+[Error] 2025/05/24 10:03:04 upload run_page/data.db to oss://bobz-p/running_page/data.db error, info: Put http://bobz-p.oss-cn-shanghai.aliyuncs.com/running_page%2Fdata.db: dial tcp 106.14.228.186:80: i/o timeout, File=run_page/data.db
