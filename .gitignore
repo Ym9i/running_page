@@ -20,4 +20,11 @@ _site/
 
 config.yaml
 .venv/
+
 data.db
+.pdm-python
+
+route.png
+route.svg
+
+.env
