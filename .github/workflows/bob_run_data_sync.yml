@@ -101,6 +101,7 @@ jobs:
       - name: Make svg GitHub profile
         if: ${{ steps.get_md5_pre.outputs.MD5_PRE != steps.get_md5_after.outputs.MD5_AFTER }}
         run: |
+          python run_page/db_updater.py
           python run_page/gen_svg.py --from-db --title "${{ env.TITLE }}" --type github --athlete "${{ env.ATHLETE }}" --special-distance 10 --special-distance2 20 --special-color yellow --special-color2 red --output assets/github.svg --use-localtime --min-distance 0.5
           python run_page/gen_svg.py --from-db --title "${{ env.TITLE_GRID }}" --type grid --athlete "${{ env.ATHLETE }}" --output assets/grid.svg --special-color yellow --special-color2 red --special-distance 20 --special-distance2 40 --use-localtime --min-distance "${{ env.MIN_GRID_DISTANCE }}"
           python run_page/gen_svg.py --from-db --type circular --use-localtime
@@ -117,7 +118,7 @@ jobs:
           git config --local user.name 'GitHub Action'
           git add .
           git commit -m 'update new runs' || echo "nothing to commit"
-          git push -f develop:rp_bob || echo "nothing to push"
+          git push origin -f develop:rp_bob || echo "nothing to push"
       - name: Set Output
         id: set_output
         run: |
